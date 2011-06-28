@@ -9,7 +9,7 @@ class DataUpdaterTest < ActiveSupport::TestCase
     }
 
     DataUpdater.send(:public, :parse_response)
-    
+
     assert expected, DataUpdater.instance.parse_response(response)
   end
 end

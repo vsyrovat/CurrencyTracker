@@ -113,6 +113,16 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] ntlm-http (v0.1.1, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/ntlm-http-0.1.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] httpi (v0.9.2, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/httpi-0.9.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] gyoku (v0.4.2, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/gyoku-0.4.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber (v1.0.0, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/cucumber-1.0.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber-rails (v1.0.2, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/cucumber-rails-1.0.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] nokogiri (v1.4.6, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/nokogiri-1.4.6-x86-mingw32)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] capybara (v1.0.0, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/capybara-1.0.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] savon (v0.9.2, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/savon-0.9.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] nori (v1.0.1, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/nori-1.0.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] capybara (v1.0.0, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/capybara-1.0.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] nokogiri (v1.4.6, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/nokogiri-1.4.6-x86-mingw32)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber (v1.0.0, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/cucumber-1.0.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] gherkin (v2.4.1, C:/Ruby/192/lib/ruby/gems/1.9.1/gems/gherkin-2.4.1-x86-mingw32)" level="application" />
   </component>
 </module>
 
