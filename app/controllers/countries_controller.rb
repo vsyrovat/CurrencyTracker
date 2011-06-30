@@ -65,6 +65,22 @@ class CountriesController < ApplicationController
     end
   end
 
+	def update_list
+		if request.post?
+			selected_countries = Country.find(:all, :conditions => {:code => params[:visited].to_a})
+			Country.all.each do |country|
+				if @user.countries.include?(country)
+					@user.countries.delete(country) if !selected_countries.include?(country)
+				else
+					@user.countries << country if selected_countries.include?(country)
+				end
+			end
+			redirect_to({:action => :index}, :notice => 'Country list successfully updated') and return
+
+		end
+		redirect_to :action => :index
+	end
+
 	private
 
 	def set_active_item

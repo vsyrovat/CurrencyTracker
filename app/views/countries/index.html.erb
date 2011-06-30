@@ -15,12 +15,13 @@
 <%- end %>
   <h1>Countries</h1>
 
+	<% form_tag :action => :update_list do %>
   <table>
     <tr>
       <th>Name</th>
       <th>Code</th>
 			<%- if @user %>
-      <th>Status</th>
+      <th>Visited</th>
       <th></th>
       <th></th>
 			<%- end %>
@@ -31,7 +32,7 @@
 				<tr>
 					<td><%= country.name %></td>
 					<td><%= country.code %></td>
-					<td><%= @user.countries.include?(country) ? raw('<strong>Visited</strong>') : 'Not Visited' %></td>
+					<td><%= check_box_tag 'visited[]', country[:code], @user.countries.include?(country) %></td>
 					<td><%= link_to 'Show', country %></td>
 					<td><%= link_to 'Edit', edit_country_path(country) %></td>
 				</tr>
@@ -45,4 +46,7 @@
 			<% end %>
 		<%- end %>
   </table>
+	<div style="text-align:right; padding-top:5px;"><%= submit_tag 'Save' %></div>
+	<% end # form_tag %>
+
 </section>
