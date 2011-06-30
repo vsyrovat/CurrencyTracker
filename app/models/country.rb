@@ -7,9 +7,11 @@ class Country < ActiveRecord::Base
   validates_uniqueness_of :code, :allow_blank => true
 
   has_many :currencies
+  has_and_belongs_to_many :users, :join_table => "user_2_country"
 
   accepts_nested_attributes_for :currencies, :allow_destroy => true
 
   scope :visited, :conditions => { :visited => true }
   scope :not_visited, :conditions => { :visited => false }
+
 end

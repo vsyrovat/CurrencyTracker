@@ -12,7 +12,7 @@
 
 <p>
   <b>Status:</b>
-  <%= @currency.collected? ? 'Collected' : 'Not Collected' %>
+  <%= @user.currencies.include?(@currency) ? 'Collected' : 'Not Collected' %>
 </p>
 
 <p>

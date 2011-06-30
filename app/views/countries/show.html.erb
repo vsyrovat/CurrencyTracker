@@ -12,7 +12,7 @@
 
 <p>
   <b>Status:</b>
-  <%= @country.visited? ? 'Visited' : 'Not Visited' %>
+  <%= @user.countries.include?(@country) ? 'Visited' : 'Not Visited' %>
 </p>
 
 <p>

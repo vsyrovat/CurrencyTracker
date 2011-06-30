@@ -12,16 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>: <%= f.label @country[:name]%>
   </div>
   <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+    <%= f.label :code %>: <%= f.label @country[:code] %>
   </div>
   <div class="field">
-    <%= f.label :visited %><br />
-    <%= f.check_box :visited %>
+    <%= f.label 'visited by you' %>: <%= check_box_tag :visited, 1, @user.countries.include?(@country) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,5 +1,4 @@
 class CountriesController < ApplicationController
-	before_filter :check_login
 	before_filter :set_active_item
 
   # GET /countries
@@ -51,7 +50,12 @@ class CountriesController < ApplicationController
     @country = Country.find(params[:id])
 
     respond_to do |format|
-      if @country.update_attributes(params[:country])
+      if case
+	        when params[:visited]
+		        @user.countries << @country unless @user.countries.include?(@country)
+	        else
+		        @user.countries.delete(@country) if @user.countries.include?(@country)
+        end
         format.html { redirect_to(@country, :notice => 'Country was successfully updated.') }
         format.xml  { head :ok }
       else

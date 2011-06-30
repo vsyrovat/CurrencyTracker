@@ -3,11 +3,11 @@
   <div id="collected_currencies_chart" class="simple_pie_chart" width='300px' height='100px'>
     <table>
       <tr>
-        <th>Collected</th>
-        <td><%= Currency.collected.count %></td>
+        <th>Collected (<%= @user.currencies.count %>)</th>
+        <td><%= @user.currencies.count %></td>
       </tr><tr>
-        <th>Not Collected</th>
-        <td><%= Currency.not_collected.count %></td>
+        <th>Not Collected (<%= Currency.count - @user.currencies.count %>)</th>
+        <td><%= Currency.count - @user.currencies.count %></td>
       </tr>
     </table>
   </div>
@@ -30,7 +30,7 @@
       <td><%= currency.name %></td>
       <td><%= currency.code %></td>
 			<%- if @user %>
-      <td><%= currency.collected? ? 'Collected' : 'Not Collected' %></td>
+      <td><%= @user.currencies.include?(currency) ? raw('<strong>Collected</strong>') : 'Not Collected' %></td>
       <td><%= link_to 'Show', currency %></td>
 			<%- end %>
     </tr>

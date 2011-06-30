@@ -1,5 +1,4 @@
 class CurrenciesController < ApplicationController
-	before_filter :check_login
 	before_filter :set_active_item
 
   # GET /currencies
