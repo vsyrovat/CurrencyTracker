@@ -115,11 +115,13 @@ nav ul {
   padding: 0;
 
   list-style-type: none;
-  display: inline;
+  display: block;
+	float: left;
 }
 
 nav ul li {
-  display: inline;
+  /*display: inline;*/
+	float: left;
 }
 
 body header nav {
@@ -130,8 +132,9 @@ body header nav {
 
 body header nav ul li {
   border: 1px solid #333;
-  padding: 10px;
+  /*padding: 10px;*/
   background: #333;
+	margin-left:5px;
 }
 
 body header nav ul li:hover {
@@ -139,17 +142,41 @@ body header nav ul li:hover {
   border: 1px solid #666;
 }
 
+body header nav ul li a {
+	padding:0 10px;
+	display:block;
+	line-height:2em;
+}
+
+nav.top_menu ul li a {color: #ccc; }
+nav.top_menu ul li a:hover {color: #fff;}
+nav.top_menu ul li.active a {color: yellow; padding-top:5px; display:block;}
+nav.top_menu ul li {border-radius:0 0 5px 5px; -moz-border-radius:0 0 5px 5px; -webkit-border-radius:0 0 5px 5px; box-shadow:1px 1px 1px; -moz-box-shadow:1px 1px 1px; -webkit-box-shadow:1px 1px 1px; }
+
 body header nav ul li a:link,
 body header nav ul li a:visited {
-  color: #FFF;
+  /*color: #FFF;*/
   text-decoration: none;
 }
 
 body header nav ul li a:hover,
 body header nav ul li a:active {
-  color: #FFF;
+  /*color: #FFF;*/
   text-decoration: none;
   background: none;
+}
+
+/* flash */
+
+.flash_alert {border:1px solid red; padding:10px; color:red;}
+.flash_notice {border:1px solid green; padding:10px; color:green;}
+
+/* account */
+
+.account {
+	float: left;
+	margin-left: 20px;
+	padding-top: 5px;
 }
 
 section h1 {

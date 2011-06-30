@@ -1,34 +1,40 @@
 <section>
+<%- if @user %>
   <div id="visited_countries_chart" class="simple_pie_chart" width='300px' height='100px'>
     <table>
       <tr>
         <th>Visited</th>
         <td><%= Country.visited.count %></td>
-      </tr><tr>
+      </tr>
+			<tr>
         <th>Not Visited</th>
         <td><%= Country.not_visited.count %></td>
       </tr>
     </table>
   </div>
-
+<%- end %>
   <h1>Countries</h1>
 
   <table>
     <tr>
       <th>Name</th>
       <th>Code</th>
+			<%- if @user %>
       <th>Status</th>
       <th></th>
       <th></th>
+			<%- end %>
     </tr>
 
   <% @countries.each do |country| %>
     <tr>
       <td><%= country.name %></td>
       <td><%= country.code %></td>
+			<%- if @user %>
       <td><%= country.visited? ? 'Visited' : 'Not Visited' %></td>
       <td><%= link_to 'Show', country %></td>
       <td><%= link_to 'Edit', edit_country_path(country) %></td>
+		<%- end %>
     </tr>
   <% end %>
   </table>

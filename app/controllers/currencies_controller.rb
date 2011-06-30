@@ -1,4 +1,7 @@
 class CurrenciesController < ApplicationController
+	before_filter :check_login
+	before_filter :set_active_item
+
   # GET /currencies
   # GET /currencies.xml
   def index
@@ -20,4 +23,11 @@ class CurrenciesController < ApplicationController
       format.xml  { render :xml => @currency }
     end
   end
+
+	private
+
+	def set_active_item
+		@active_item = :currencies
+	end
+
 end

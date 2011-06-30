@@ -5,6 +5,8 @@ CurrencyTracker::Application.routes.draw do
 
   resources :currencies, :only => [:index, :show]
 
+	match 'account/:action', :controller => :account
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

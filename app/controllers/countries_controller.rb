@@ -1,4 +1,7 @@
 class CountriesController < ApplicationController
+	before_filter :check_login
+	before_filter :set_active_item
+
   # GET /countries
   # GET /countries.xml
   def index
@@ -57,4 +60,11 @@ class CountriesController < ApplicationController
       end
     end
   end
+
+	private
+
+	def set_active_item
+		@active_item = :countries
+	end
+
 end
