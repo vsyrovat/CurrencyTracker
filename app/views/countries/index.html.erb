@@ -15,8 +15,12 @@
 <%- end %>
   <h1>Countries</h1>
 
+	<div style="clear:both">Filter: <input type="text" id="filterbox" autocomplete="off">
+		<button id="filter_do">do</button>
+		<button id="filter_clear">clear</button></div>
+
 	<% form_tag :action => :update_list do %>
-  <table>
+  <table id="countriestable">
     <tr>
       <th>Name</th>
       <th>Code</th>
@@ -29,8 +33,8 @@
 
 		<%- if @user %>
 			<% @countries.each do |country| %>
-				<tr>
-					<td><%= country.name %></td>
+				<tr class="country">
+					<td class="name"><%= country.name %></td>
 					<td><%= country.code %></td>
 					<td><%= check_box_tag 'visited[]', country[:code], @user.countries.include?(country) %></td>
 					<td><%= link_to 'Show', country %></td>
@@ -39,7 +43,7 @@
 			<% end %>
 		<%- else %>
 			<% @countries.each do |country| %>
-				<tr>
+				<tr class="country">
 					<td><%= country.name %></td>
 					<td><%= country.code %></td>
 				</tr>
@@ -50,3 +54,24 @@
 	<% end # form_tag %>
 
 </section>
+
+<script type="text/javascript">
+$(function(){
+	$('#filter_do').click(function(){
+		var filtertext = $('#filterbox').val().toLowerCase();
+		if (filtertext.match(/\S/ig)){
+			$('#countriestable tr.country').each(function(index, item){
+				if ($(item).children('td.name').text().toLowerCase().match(filtertext)){
+					$(item).show();
+				} else {
+					$(item).hide();
+				}
+			})
+		}
+	});
+	$('#filter_clear').click(function(){
+		$('#filterbox').val('')
+		$('#countriestable tr.country').show()
+	});
+});
+</script>
