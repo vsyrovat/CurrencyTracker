@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110701195635) do
+ActiveRecord::Schema.define(:version => 20110629103511) do
 
   create_table "countries", :id => false, :force => true do |t|
     t.string   "name"
@@ -28,21 +28,20 @@ ActiveRecord::Schema.define(:version => 20110701195635) do
     t.string   "country_id"
   end
 
+  create_table "user_2_country", :id => false, :force => true do |t|
+    t.integer  "user_id",      :null => false
+    t.string   "country_code", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_2_country", ["user_id", "country_code"], :name => "index_user_2_country_on_user_id_and_country_code", :unique => true
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "visits", :force => true do |t|
-    t.integer  "user_id",      :null => false
-    t.string   "country_code", :null => false
-    t.date     "visit_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "visits", ["user_id", "country_code"], :name => "index_visits_on_user_id_and_country_code", :unique => true
 
 end
