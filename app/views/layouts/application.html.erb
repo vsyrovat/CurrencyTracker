@@ -16,18 +16,18 @@
       <li class="<%= active_item?('countries') ? 'active' : '' %>"><%= link_to "Countries", countries_path %></li>
     </ul>
 		<div class="account">
-			<%- if @user %>
+			<% if @user %>
 				<%= link_to @user[:name], :controller=>:account %>
-			<%- else %>
+			<% else %>
 				<a href="<%= url_for :controller=>:account, :action => :login %>">Log in</a>
-			<%- end %>
+			<% end %>
 		</div>
   </nav>
-	<%- if flash[:alert] %>
+	<% if flash[:alert] %>
 	<div class="flash_alert"><%= flash[:alert] %></div>
-	<%- elsif flash[:notice] %>
+	<% elsif flash[:notice] %>
 	<div class="flash_notice"><%= flash[:notice] %></div>
-	<%- end %>
+	<% end %>
 </header>
 
 <%= yield %>
