@@ -15,8 +15,9 @@ How to install
 --------------
 1. git clone git://github.com/vsyrovat/CurrencyTracker.git
 2. cd CurrencyTracker
-3. rake db:create
-4. rake db:migrate
-5. rake db:seed
-6. rails server
-7. open localhost:3000 in your browser
+3. bundle install
+4. rake db:create
+5. rake db:migrate
+6. rake db:seed
+7. rails server
+8. open localhost:3000 in your browser
