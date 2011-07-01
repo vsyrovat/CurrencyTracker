@@ -1,27 +1,60 @@
-<section>
-<% if @user %>
-  <div id="visited_countries_chart" class="simple_pie_chart" width='300px' height='100px'>
-    <table>
-      <tr>
-        <th>Visited (<%= @user.countries.count %>)</th>
-        <td><%= @user.countries.count %></td>
-      </tr>
-			<tr>
-        <th>Not Visited (<%= Country.count - @user.countries.count %>)</th>
-        <td><%= Country.count - @user.countries.count %></td>
-      </tr>
-    </table>
-  </div>
-<% end %>
-  <h1>Countries</h1>
+<style>
+	/*@import "/charting/css/basic.css";*/
+	@import "/charting/css/visualize.css";
+	@import "/charting/css/visualize-light.css";
+</style>
 
-	<% if @user %>
+<section>
+	<h1>Countries</h1>
+<% if @user %>
 	<div style="clear:both">
-		<canvas id="chart" width="600" height="100">
-			This text is displayed if your browser does not support HTML5 Canvas.
-		</canvas>
+		<div id="visited_countries_chart" class="simple_pie_chart" width='300px' height='100px'>
+			<table>
+				<tr>
+					<th>Visited (<%= @user.countries.count %>)</th>
+					<td><%= @user.countries.count %></td>
+				</tr>
+				<tr>
+					<th>Not Visited (<%= Country.count - @user.countries.count %>)</th>
+					<td><%= Country.count - @user.countries.count %></td>
+				</tr>
+			</table>
+		</div>
+
+		<table id="chart" style="display:none" class="chart">
+			<caption>Visits from August 16 to August 21</caption>
+			<thead>
+				<tr>
+					<td></td>
+					<th scope="col">Monday</th>
+					<th scope="col">Tuesday</th>
+					<th scope="col">Wednesday</th>
+					<th scope="col">Thursday</th>
+					<th scope="col">Friday</th>
+					<th scope="col">Saturday</th>
+					<th scope="col">Sunday</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<th scope="row">11</th>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+				</tr>
+			</tbody>
+		</table>
+
 	</div>
-	<% end %>
+
+<% end %>
+
+
 
 	<div style="clear:both">Filter: <input type="text" id="filterbox" autocomplete="off">
 		<button id="filter_do">filter</button>
@@ -65,6 +98,8 @@
 
 </section>
 
+<script type="text/javascript" src="/charting/js/visualize.jQuery.js"></script>
+
 <script type="text/javascript">
 $(function(){
 	$('#filter_do').click(function(){
@@ -79,14 +114,19 @@ $(function(){
 			})
 		}
 	});
+
 	$('#filter_clear').click(function(){
 		$('#filterbox').val('')
 		$('#countriestable tr.country').show()
 	});
+
 	$('#filter_checkall').click(function(){
 		$('#countriestable tr.country:visible').each(function(index, item){
 			$(item).children('td.checkbox').children('input').attr('checked', true);
 		});
-	})
+	});
+
+	$('#chart').visualize({type: 'line', width: '400px'});
+
 });
 </script>
