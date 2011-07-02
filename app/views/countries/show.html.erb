@@ -15,6 +15,13 @@
   <%= @user.countries.include?(@country) ? 'Visited' : 'Not Visited' %>
 </p>
 
+<% if @user.countries.include?(@country) %>
+	<p>
+		<b>Visit date:</b>
+		<%= @visit.visit_date %>
+	</p>
+<% end %>
+
 <p>
   <b>Currencies:</b>
   <ul>

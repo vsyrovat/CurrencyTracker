@@ -26,26 +26,18 @@
 			<thead>
 				<tr>
 					<td></td>
-					<th scope="col">Monday</th>
-					<th scope="col">Tuesday</th>
-					<th scope="col">Wednesday</th>
-					<th scope="col">Thursday</th>
-					<th scope="col">Friday</th>
-					<th scope="col">Saturday</th>
-					<th scope="col">Sunday</th>
+					<% @chart_data.each do |k,v| %>
+						<th scope="col"><%= k %></th>
+					<% end %>
 				</tr>
 			</thead>
 			<tbody>
 
 				<tr>
-					<th scope="row">11</th>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
+					<th scope="row">*</th>
+					<% @chart_data.each do |k,v| %>
+						<td scope="col"><%= v %></td>
+					<% end %>
 				</tr>
 			</tbody>
 		</table>
